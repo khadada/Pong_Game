@@ -19,13 +19,14 @@ ball = Ball()
 score = Score()
 game_is_on = True
 while game_is_on:
-    time.sleep(.04)
+    time.sleep(ball.move_speed)
     my_screen.update()
     ball.move()
     if ball.ycor() > 290 or ball.ycor() < -320:
         ball.bounce_y()
     if (ball.distance(paddle_left) < 50 and ball.xcor() < -360) or (ball.distance(paddle_right) < 50 and ball.xcor() > 360):
         ball.bounce_x()
+        ball.speed_up()
     elif ball.xcor() < -380:
         score.point_up('right')
         score.update()
