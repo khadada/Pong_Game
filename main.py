@@ -29,9 +29,11 @@ while game_is_on:
         ball.speed_up()
     elif ball.xcor() < -380:
         score.point_up('right')
+        ball.reset_speed()
         score.update()
         ball.restart()
     elif ball.xcor() > 380:
+        ball.reset_speed()
         score.point_up('left')
         score.update()
         ball.restart()
